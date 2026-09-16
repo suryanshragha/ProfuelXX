@@ -1,13 +1,12 @@
 [build]
   base = "client"
-  command = "npm install && npm run build"
+  command = "npm install && npm run build && npm install --prefix ../netlify/functions"
   publish = "dist"
   functions = "../netlify/functions"
 
 [functions]
   node_bundler = "esbuild"
 
-# Order matters: literal paths before the generic /api/orders/:id pattern.
 [[redirects]]
   from = "/api/products"
   to = "/.netlify/functions/products-list"
@@ -48,7 +47,6 @@
   to = "/.netlify/functions/orders-get?id=:id"
   status = 200
 
-# Client-side routing (React Router) — must be last.
 [[redirects]]
   from = "/*"
   to = "/index.html"
