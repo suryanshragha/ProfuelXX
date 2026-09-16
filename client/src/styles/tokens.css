@@ -1,0 +1,33 @@
+:root{
+  --cream:      #F7F1E4;
+  --cream-2:    #EFE6D2;
+  --paper:      #FFFDF8;
+  --choc:       #1C130D;
+  --choc-2:     #2C1F16;
+  --lime:       #B7E514;
+  --lime-dark:  #8FB80E;
+  --text:       #211A13;
+  --text-soft:  #6E6155;
+  --on-choc:    #F7F1E4;
+  --on-choc-soft: #C9BFAE;
+  --line:       rgba(33,26,19,.14);
+  --line-choc:  rgba(247,241,228,.14);
+  --danger:     #C4432A;
+
+  --display: "Space Grotesk", "Inter", sans-serif;
+  --body: "Inter", -apple-system, Segoe UI, Arial, sans-serif;
+
+  --radius-s: 8px;
+  --radius-m: 16px;
+  --radius-l: 26px;
+  --shadow-1: 0 2px 6px rgba(28,19,13,.08);
+  --shadow-2: 0 22px 50px -20px rgba(28,19,13,.35);
+
+  --container: 1200px;
+  --edge: clamp(20px, 6vw, 64px);
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+}

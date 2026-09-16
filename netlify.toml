@@ -1,0 +1,55 @@
+[build]
+  base = "client"
+  command = "npm install && npm run build"
+  publish = "dist"
+  functions = "../netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# Order matters: literal paths before the generic /api/orders/:id pattern.
+[[redirects]]
+  from = "/api/products"
+  to = "/.netlify/functions/products-list"
+  status = 200
+
+[[redirects]]
+  from = "/api/delivery/check"
+  to = "/.netlify/functions/delivery-check"
+  status = 200
+
+[[redirects]]
+  from = "/api/orders/preview"
+  to = "/.netlify/functions/orders-preview"
+  status = 200
+
+[[redirects]]
+  from = "/api/orders/cod"
+  to = "/.netlify/functions/orders-cod"
+  status = 200
+
+[[redirects]]
+  from = "/api/orders/razorpay/create"
+  to = "/.netlify/functions/orders-razorpay-create"
+  status = 200
+
+[[redirects]]
+  from = "/api/orders/razorpay/verify"
+  to = "/.netlify/functions/orders-razorpay-verify"
+  status = 200
+
+[[redirects]]
+  from = "/api/orders/razorpay/release"
+  to = "/.netlify/functions/orders-razorpay-release"
+  status = 200
+
+[[redirects]]
+  from = "/api/orders/:id"
+  to = "/.netlify/functions/orders-get?id=:id"
+  status = 200
+
+# Client-side routing (React Router) — must be last.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
